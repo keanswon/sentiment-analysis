@@ -8,8 +8,7 @@ from bs4 import BeautifulSoup
 def scrape_google_news():
     # hard coding 'ethereum crypto' because there's also a gas company
     url = f"https://news.google.com/search?q=Ethereum%20crypto" 
-    
-    # mimicing a browser request
+
     headers = {
         "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                        "AppleWebKit/537.36 (KHTML, like Gecko) "
