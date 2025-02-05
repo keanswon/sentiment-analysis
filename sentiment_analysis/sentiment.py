@@ -32,7 +32,7 @@ def main():
     for text in texts:
         scores = analyze_sentiment(text)
         print(f"Text: {text}")
-        print("Sentiment Scores:", scores)
+        print("Sentimen`t Scores:", scores)
         print("-" * 50)
 
 if __name__ == '__main__':

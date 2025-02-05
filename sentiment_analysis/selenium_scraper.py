@@ -5,10 +5,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 import pandas as pd
 import os
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -23,7 +21,6 @@ def scrape_google_news_selenium():
     driver = webdriver.Firefox(options=firefox_options)
     print("loading firefox...")
     try:
-        # 3. Navigate to Google News with query
         query = "Ethereum%20crypto"
         url = f"https://news.google.com/search?q={query}"
         driver.get(url)
@@ -39,8 +36,6 @@ def scrape_google_news_selenium():
             
             relative_link = a_tag.get_attribute("href")
             
-            full_link = "https://news.google.com" + relative_link[1:]
-            
             articles.append({
                 "title": title,
                 "link": relative_link
@@ -49,11 +44,9 @@ def scrape_google_news_selenium():
         return articles
 
     finally:
-        # Close the browser
         driver.quit()
 
 if __name__ == "__main__":
-    # Run the scrape
     news_articles = scrape_google_news_selenium()
 
     titles = []
